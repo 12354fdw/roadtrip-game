@@ -13,6 +13,7 @@
       <BinaryString name="CollisionGroupData"><![CDATA[AQEABP////8HRGVmYXVsdA==]]></BinaryString>
       <Ref name="CurrentCamera">null</Ref>
       <double name="DistributedGameTime">0</double>
+      <token name="EnableSLIMAvatars">0</token>
       <bool name="ExplicitAutoJoints">true</bool>
       <bool name="FallHeightEnabled">true</bool>
       <float name="FallenPartsDestroyHeight">-500</float>
@@ -24,6 +25,7 @@
       </Vector3>
       <float name="Gravity">196.2</float>
       <token name="IKControlConstraintSupport">0</token>
+      <token name="LayeredClothingCacheOptimizations">0</token>
       <token name="LevelOfDetail">0</token>
       <token name="LuauTypeCheckMode">0</token>
       <token name="MeshPartHeadsAndAccessories">0</token>
@@ -63,16 +65,11 @@
       <token name="RenderingCacheOptimizations">0</token>
       <token name="ReplicateInstanceDestroySetting">0</token>
       <token name="Retargeting">0</token>
-      <BinaryString name="RolloutValidationBinaryExpectedValue">
-      </BinaryString>
-      <BinaryString name="RolloutValidationBinaryString">
-      </BinaryString>
-      <SharedString name="RolloutValidationSharedExpectedValue">rxNJufX5oaagQE3qNtzJSQ==</SharedString>
-      <SharedString name="RolloutValidationSharedString">rxNJufX5oaagQE3qNtzJSQ==</SharedString>
       <bool name="DefinesCapabilities">false</bool>
       <token name="SandboxedInstanceMode">0</token>
       <float name="ScaleFactor">1</float>
       <token name="SignalBehavior2">2</token>
+      <SharedString name="SlimHash">rxNJufX5oaagQE3qNtzJSQ==</SharedString>
       <int64 name="SourceAssetId">-1</int64>
       <token name="StreamOutBehavior">2</token>
       <bool name="StreamingEnabled">true</bool>
@@ -85,6 +82,7 @@
       <bool name="TouchesUseCollisionGroups">false</bool>
       <token name="UseFixedSimulation">0</token>
       <token name="UseNewLuauTypeSolver">2</token>
+      <token name="ValidateEnabledProximityPrompt">0</token>
       <OptionalCoordinateFrame name="WorldPivotData">
         <CFrame>
           <X>0</X>

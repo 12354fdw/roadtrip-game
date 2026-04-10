@@ -1,4 +1,5 @@
 {
+	"exclude": ["transformers", "src/shared/items/definitions"],
 	"compilerOptions": {
 		// required
 		"allowSyntheticDefaultImports": true,
@@ -27,6 +28,10 @@
 		"plugins": [
 			{
 				"transform": "rbxts-transformer-flamework",
+				"obfuscation": false
+			},
+			{
+				"transform": "./transformers/Logger.ts",
 				"obfuscation": false
 			}
 		]
