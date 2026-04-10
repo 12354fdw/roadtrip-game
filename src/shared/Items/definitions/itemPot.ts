@@ -1,8 +1,8 @@
-import { BaseItem } from "shared/ItemRegistry/baseItem";
+import { BaseItem, ItemWeight } from "shared/ItemRegistry/ItemTypes/baseItem";
 import { Assets } from "shared/assets";
 
 class ITEM_POT extends BaseItem {
-	stackCount = 1;
+	weight: ItemWeight = ItemWeight.Normal;
 	id = "ITEM_POT";
 
 	model = Assets.getAsset("Items", "Pot") as Model;

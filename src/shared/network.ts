@@ -1,12 +1,12 @@
 import { Networking } from "@flamework/networking";
 
-interface ClientToServerEvents {}
+interface C2S_Events {}
 
-interface ServerToClientEvents {}
+interface S2C_Events {}
 
-interface ClientToServerFunctions {}
+interface C2S2C_Functions {}
 
-interface ServerToClientFunctions {}
+interface S2C2S_Functions {}
 
-export const GlobalEvents = Networking.createEvent<ClientToServerEvents, ServerToClientEvents>();
-export const GlobalFunctions = Networking.createFunction<ClientToServerFunctions, ServerToClientFunctions>();
+export const GlobalEvents = Networking.createEvent<C2S_Events, S2C_Events>();
+export const GlobalFunctions = Networking.createFunction<C2S2C_Functions, S2C2S_Functions>();
