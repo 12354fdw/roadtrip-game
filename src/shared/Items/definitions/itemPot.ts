@@ -5,7 +5,7 @@ class ITEM_POT extends BaseItem {
 	stackCount = 1;
 	id = "ITEM_POT";
 
-	model = Assets.getAsset("Items", "Pot") as Tool;
+	model = Assets.getAsset("Items", "Pot") as Model;
 }
 
 export default ITEM_POT;
