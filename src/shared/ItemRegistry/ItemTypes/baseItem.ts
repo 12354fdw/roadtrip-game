@@ -4,6 +4,7 @@ export abstract class BaseItem {
 	onCreation(): void {} // for setting up advanced interactions
 
 	abstract id: string;
+	abstract displayName: string;
 
 	abstract holdType: ItemHoldType;
 

@@ -1,10 +1,11 @@
-import { BaseItem, ItemHoldType, ItemWeight } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem, ItemHoldType } from "shared/ItemRegistry/ItemTypes/baseItem";
 import { Assets } from "shared/assets";
 
 export class ITEM_POT extends BaseItem {
 	id = "ITEM_POT";
+	displayName: string = "Cooking Pot";
 
 	holdType: ItemHoldType = "OneHanded";
 
-	model = Assets.getAsset("Items", "POT") as Model;
+	model = Assets.getAsset("Items", "POT")?.Clone() as Model;
 }

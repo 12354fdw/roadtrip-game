@@ -16,5 +16,7 @@ export class ItemRegistry {
 		ItemRegistry.registerInstance(instance);
 
 		if (!instance.model.HasTag("Item")) instance.model.AddTag("Item");
+		instance.model.SetAttribute("id", undefined);
+		instance.model.SetAttribute("type", instance.id);
 	}
 }
