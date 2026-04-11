@@ -1,4 +1,4 @@
-import { ItemStack } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem, ItemHoldType } from "shared/ItemRegistry/ItemTypes/baseItem";
 
 export class PlayerState {
 	public stats: PlayerStats = new PlayerStats();
@@ -16,8 +16,14 @@ export class PlayerStats {
 }
 
 export class PlayerHands {
-	public left: ItemStack | undefined;
-	public right: ItemStack | undefined;
+	public handMode: ItemHoldType = "OneHanded";
+
+	// OneHanded Data
+	public left: BaseItem | undefined;
+	public right: BaseItem | undefined;
+
+	// TwoHanded Data
+	public both: BaseItem | undefined;
 }
 
 export class PlayerClothing {

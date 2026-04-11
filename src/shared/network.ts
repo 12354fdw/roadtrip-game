@@ -1,7 +1,8 @@
 import { Networking } from "@flamework/networking";
-import { PlayerState } from "shared/types/playerData";
 
-interface C2S_Events {}
+interface C2S_Events {
+	requestReplicatedData(id: string): void;
+}
 
 interface S2C_Events {
 	replicatedData(id: string, data: unknown): void;

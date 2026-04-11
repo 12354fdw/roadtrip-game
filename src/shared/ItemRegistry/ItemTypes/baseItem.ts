@@ -1,21 +1,13 @@
-export enum ItemWeight {
-	VeryLight = 16,
-	Light = 8,
-	Normal = 1,
-}
+export type ItemHoldType = "TwoHanded" | "OneHanded";
 
 export abstract class BaseItem {
 	onCreation(): void {} // for setting up advanced interactions
 
-	abstract weight: ItemWeight;
 	abstract id: string;
+
+	abstract holdType: ItemHoldType;
 
 	abstract model: Model;
 
 	public equiped: boolean = false;
-}
-
-export interface ItemStack {
-	item: BaseItem;
-	count: number;
 }

@@ -1,18 +1,22 @@
 import { OnStart, Service } from "@flamework/core";
 import { Players } from "@rbxts/services";
-import { Functions } from "server/network";
-import { GlobalFunctions } from "shared/network";
+import { ReplicatedDataServer } from "server/types/replicatedDataServer";
 import { PlayerState } from "shared/types/playerData";
 
 @Service()
 export class PlayerService implements OnStart {
-	private playerDatas = new Map<number, PlayerState>();
+	private playerDatas = new Map<number, ReplicatedDataServer<PlayerState>>();
 
 	onStart(): void {
 		Players.PlayerAdded.Connect((player: Player) => {
 			if (this.playerDatas.has(player.UserId)) return;
 
-			this.playerDatas.set(player.UserId, new PlayerState());
+			const playerState = new PlayerState();
+
+			this.playerDatas.set(
+				player.UserId,
+				new ReplicatedDataServer<PlayerState>(player, "playerState", playerState),
+			);
 		});
 
 		Players.PlayerRemoving.Connect((player: Player) => {

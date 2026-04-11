@@ -12,6 +12,9 @@ export class ItemRegistry {
 	}
 
 	public static register<T extends BaseItem>(factory: new () => T) {
-		ItemRegistry.registerInstance(new factory());
+		const instance = new factory();
+		ItemRegistry.registerInstance(instance);
+
+		if (!instance.model.HasTag("Item")) instance.model.AddTag("Item");
 	}
 }
