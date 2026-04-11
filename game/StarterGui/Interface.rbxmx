@@ -124,13 +124,10 @@
             <bool name="Draggable">false</bool>
             <Font name="FontFace">
               <Family>
-                <url>rbxasset://fonts/families/SourceSansPro.json</url>
+                <url>rbxassetid://12187365364</url>
               </Family>
               <Weight>400</Weight>
               <Style>Normal</Style>
-              <CachedFaceId>
-                <url>rbxasset://fonts/SourceSansPro-Regular.ttf</url>
-              </CachedFaceId>
             </Font>
             <token name="InputSink">0</token>
             <bool name="Interactable">true</bool>
@@ -224,13 +221,10 @@
             <bool name="Draggable">false</bool>
             <Font name="FontFace">
               <Family>
-                <url>rbxasset://fonts/families/SourceSansPro.json</url>
+                <url>rbxassetid://12187365364</url>
               </Family>
               <Weight>400</Weight>
               <Style>Normal</Style>
-              <CachedFaceId>
-                <url>rbxasset://fonts/SourceSansPro-Regular.ttf</url>
-              </CachedFaceId>
             </Font>
             <token name="InputSink">0</token>
             <bool name="Interactable">true</bool>
@@ -295,9 +289,23 @@
             <int name="ZIndex">1</int>
           </Properties>
         </Item>
+        <Item class="UICorner" referent="5">
+          <Properties>
+            <string name="Name">UICorner</string>
+            <BinaryString name="AttributesSerialize"></BinaryString>
+            <SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+            <UDim name="CornerRadius">
+              <S>0</S>
+              <O>5</O>
+            </UDim>
+            <bool name="DefinesCapabilities">false</bool>
+            <int64 name="SourceAssetId">-1</int64>
+            <BinaryString name="Tags"></BinaryString>
+          </Properties>
+        </Item>
       </Item>
     </Item>
-    <Item class="Frame" referent="5">
+    <Item class="Frame" referent="6">
       <Properties>
         <string name="Name">PlayerStats</string>
         <bool name="Active">false</bool>
@@ -361,7 +369,7 @@
         <bool name="Visible">true</bool>
         <int name="ZIndex">1</int>
       </Properties>
-      <Item class="Frame" referent="6">
+      <Item class="Frame" referent="7">
         <Properties>
           <string name="Name">Health</string>
           <bool name="Active">false</bool>
@@ -425,7 +433,7 @@
           <bool name="Visible">true</bool>
           <int name="ZIndex">1</int>
         </Properties>
-        <Item class="UICorner" referent="7">
+        <Item class="UICorner" referent="8">
           <Properties>
             <string name="Name">UICorner</string>
             <BinaryString name="AttributesSerialize"></BinaryString>
@@ -439,7 +447,7 @@
             <BinaryString name="Tags"></BinaryString>
           </Properties>
         </Item>
-        <Item class="Frame" referent="8">
+        <Item class="Frame" referent="9">
           <Properties>
             <string name="Name">Value</string>
             <bool name="Active">false</bool>
@@ -503,7 +511,7 @@
             <bool name="Visible">true</bool>
             <int name="ZIndex">1</int>
           </Properties>
-          <Item class="UICorner" referent="9">
+          <Item class="UICorner" referent="10">
             <Properties>
               <string name="Name">UICorner</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -518,7 +526,7 @@
             </Properties>
           </Item>
         </Item>
-        <Item class="TextLabel" referent="10">
+        <Item class="TextLabel" referent="11">
           <Properties>
             <string name="Name">Label</string>
             <bool name="Active">false</bool>
@@ -615,7 +623,7 @@
             <int name="ZIndex">1</int>
           </Properties>
         </Item>
-        <Item class="UIPadding" referent="11">
+        <Item class="UIPadding" referent="12">
           <Properties>
             <string name="Name">UIPadding</string>
             <BinaryString name="AttributesSerialize"></BinaryString>
@@ -642,7 +650,7 @@
           </Properties>
         </Item>
       </Item>
-      <Item class="Frame" referent="12">
+      <Item class="Frame" referent="13">
         <Properties>
           <string name="Name">Hunger</string>
           <bool name="Active">false</bool>
@@ -706,7 +714,7 @@
           <bool name="Visible">true</bool>
           <int name="ZIndex">1</int>
         </Properties>
-        <Item class="UICorner" referent="13">
+        <Item class="UICorner" referent="14">
           <Properties>
             <string name="Name">UICorner</string>
             <BinaryString name="AttributesSerialize"></BinaryString>
@@ -720,7 +728,7 @@
             <BinaryString name="Tags"></BinaryString>
           </Properties>
         </Item>
-        <Item class="Frame" referent="14">
+        <Item class="Frame" referent="15">
           <Properties>
             <string name="Name">Value</string>
             <bool name="Active">false</bool>
@@ -784,7 +792,7 @@
             <bool name="Visible">true</bool>
             <int name="ZIndex">1</int>
           </Properties>
-          <Item class="UICorner" referent="15">
+          <Item class="UICorner" referent="16">
             <Properties>
               <string name="Name">UICorner</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -799,7 +807,7 @@
             </Properties>
           </Item>
         </Item>
-        <Item class="TextLabel" referent="16">
+        <Item class="TextLabel" referent="17">
           <Properties>
             <string name="Name">Label</string>
             <bool name="Active">false</bool>
@@ -896,7 +904,7 @@
             <int name="ZIndex">1</int>
           </Properties>
         </Item>
-        <Item class="UIPadding" referent="17">
+        <Item class="UIPadding" referent="18">
           <Properties>
             <string name="Name">UIPadding</string>
             <BinaryString name="AttributesSerialize"></BinaryString>
@@ -923,7 +931,7 @@
           </Properties>
         </Item>
       </Item>
-      <Item class="Frame" referent="18">
+      <Item class="Frame" referent="19">
         <Properties>
           <string name="Name">Thirst</string>
           <bool name="Active">false</bool>
@@ -987,7 +995,7 @@
           <bool name="Visible">true</bool>
           <int name="ZIndex">1</int>
         </Properties>
-        <Item class="UICorner" referent="19">
+        <Item class="UICorner" referent="20">
           <Properties>
             <string name="Name">UICorner</string>
             <BinaryString name="AttributesSerialize"></BinaryString>
@@ -1001,7 +1009,7 @@
             <BinaryString name="Tags"></BinaryString>
           </Properties>
         </Item>
-        <Item class="Frame" referent="20">
+        <Item class="Frame" referent="21">
           <Properties>
             <string name="Name">Value</string>
             <bool name="Active">false</bool>
@@ -1065,7 +1073,7 @@
             <bool name="Visible">true</bool>
             <int name="ZIndex">1</int>
           </Properties>
-          <Item class="UICorner" referent="21">
+          <Item class="UICorner" referent="22">
             <Properties>
               <string name="Name">UICorner</string>
               <BinaryString name="AttributesSerialize"></BinaryString>
@@ -1080,7 +1088,7 @@
             </Properties>
           </Item>
         </Item>
-        <Item class="TextLabel" referent="22">
+        <Item class="TextLabel" referent="23">
           <Properties>
             <string name="Name">Label</string>
             <bool name="Active">false</bool>
@@ -1177,7 +1185,7 @@
             <int name="ZIndex">1</int>
           </Properties>
         </Item>
-        <Item class="UIPadding" referent="23">
+        <Item class="UIPadding" referent="24">
           <Properties>
             <string name="Name">UIPadding</string>
             <BinaryString name="AttributesSerialize"></BinaryString>
@@ -1205,7 +1213,7 @@
         </Item>
       </Item>
     </Item>
-    <Item class="TextLabel" referent="24">
+    <Item class="TextLabel" referent="25">
       <Properties>
         <string name="Name">TextLabel</string>
         <bool name="Active">false</bool>

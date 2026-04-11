@@ -3,12 +3,12 @@ export type ItemHoldType = "TwoHanded" | "OneHanded";
 export abstract class BaseItem {
 	onCreation(): void {} // for setting up advanced interactions
 
-	abstract id: string;
-	abstract displayName: string;
+	abstract readonly id: string;
+	abstract readonly displayName: string;
 
-	abstract holdType: ItemHoldType;
+	abstract readonly holdType: ItemHoldType;
 
-	abstract model: Model;
+	abstract readonly model: Model;
 
 	public equiped: boolean = false;
 }

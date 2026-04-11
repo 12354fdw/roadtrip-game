@@ -4,16 +4,24 @@ export class ReplicatedDataServer<T> {
 	private data: T | undefined;
 	private listeners: Set<(data: T) => void> = new Set();
 
-	constructor(private targetPlayer: Player, private id: string, initData?: T) {
+	constructor(private targetPlayer: Player | "everyone", private id: string, initData?: T) {
 		this.data = initData;
 		if (initData !== undefined) {
-			Events.replicatedData.fire(targetPlayer, id, initData);
+			this.fireData();
+		}
+	}
+
+	private fireData() {
+		if (this.targetPlayer !== "everyone") {
+			Events.replicatedData.fire(this.targetPlayer, this.id, this.data);
+		} else {
+			Events.replicatedData.broadcast(this.id, this.data);
 		}
 	}
 
 	public set(data: T): void {
 		this.data = data;
-		Events.replicatedData.fire(this.targetPlayer, this.id, data);
+		this.fireData();
 		this.listeners.forEach((cb) => cb(data));
 	}
 

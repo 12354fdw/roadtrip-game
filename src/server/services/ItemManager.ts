@@ -1,11 +1,14 @@
 import { OnStart, Service } from "@flamework/core";
 import { Workspace } from "@rbxts/services";
+import { ReplicatedDataServer } from "server/types/replicatedDataServer";
 import { BaseItem } from "shared/ItemRegistry/ItemTypes/baseItem";
 import { ITEM_COLON_THREE_ONEHAND } from "shared/Items/definitions/ITEM_COLON_THREE_ONEHAND";
 import { ITEM_COLON_THREE_TWOHAND } from "shared/Items/definitions/ITEM_COLON_THREE_TWOHAND";
+import { ITEM_POT } from "shared/Items/definitions/ITEM_POT";
 
 @Service()
 export class ItemManager implements OnStart {
+	private replicatedItems = new ReplicatedDataServer<Map<number, BaseItem>>("everyone", "Items");
 	private items = new Map<number, BaseItem>();
 	private nextId = 0;
 
@@ -13,6 +16,8 @@ export class ItemManager implements OnStart {
 		const item = new itemType();
 
 		this.items.set(this.nextId, item);
+		this.replicatedItems.set(this.items);
+
 		item.model.SetAttribute("id", this.nextId);
 		item.model.SetAttribute("type", item.id);
 		if (!item.model.HasTag("Item")) item.model.AddTag("Item");
@@ -27,5 +32,6 @@ export class ItemManager implements OnStart {
 	onStart(): void {
 		this.createItem(ITEM_COLON_THREE_ONEHAND, new Vector3(0, 10, 0));
 		this.createItem(ITEM_COLON_THREE_TWOHAND, new Vector3(10, 10, 0));
+		this.createItem(ITEM_POT, new Vector3(0, 10, 10));
 	}
 }

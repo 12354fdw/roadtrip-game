@@ -3,7 +3,7 @@ import { Assets } from "shared/assets";
 
 export class ITEM_COLON_THREE_TWOHAND extends BaseItem {
 	id = "ITEM_COLON_THREE_TWOHAND";
-	displayName: string = "twohanded colon 3 :3";
+	displayName: string = "twohanded :3";
 
 	holdType: ItemHoldType = "OneHanded";
 
