@@ -15,9 +15,10 @@ export class PhysicalItemManager {
 		handle.CFrame = attachment.WorldCFrame;
 
 		const weld = new Instance("WeldConstraint");
+		weld.Name = "_GripWeld";
 		weld.Part0 = attachment.Parent as BasePart;
 		weld.Part1 = handle;
-		weld.Parent = attachment.Parent;
+		weld.Parent = item.model;
 
 		iterateOnDescendants(item.model, (instance: Instance) => {
 			// too lazy to check properly
@@ -40,7 +41,22 @@ export class PhysicalItemManager {
 		}
 	}
 
-	public drop(item: BaseItem, position: Vector3) {}
+	public drop(item: BaseItem, position: CFrame) {
+		iterateOnDescendants(item.model, (instance: Instance) => {
+			// too lazy to check properly
+			pcall(() => {
+				(instance as BasePart).CanCollide = true;
+			});
+		});
+
+		item.model.WaitForChild("_GripWeld").Destroy();
+
+		(item.model.WaitForChild("Handle") as BasePart).CFrame = position.add(
+			new Vector3(0, item.model.GetExtentsSize().Y, 0), // prevent clipping into the floor sometimes
+		);
+
+		item.model.SetAttribute("canPickup", true);
+	}
 
 	private getGripAttachments(character: Model): gripAttachments {
 		const isR15 = character.FindFirstChild("UpperTorso") !== undefined;

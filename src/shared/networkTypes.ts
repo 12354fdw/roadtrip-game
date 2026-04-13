@@ -12,5 +12,5 @@ export interface pickupItem {
 }
 
 export interface dropItem {
-	position: Vector3;
+	position: CFrame;
 }

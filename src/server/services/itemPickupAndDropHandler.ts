@@ -42,7 +42,25 @@ export class ItemPickupAndDropHandler implements OnStart {
 		});
 
 		Events.dropItem.connect((player: Player, event: dropItem) => {
-			// TODO: impl this
+			const playerData = this.playerService.getPlayerData(player)!;
+			const position = event.position;
+
+			if (playerData.hands.left && playerData.hands.left.holdType === "TwoHanded") {
+				this.physicalItemManager.drop(playerData.hands.left, position);
+				playerData.hands.left = undefined;
+			}
+
+			if (playerData.hands.right) {
+				this.physicalItemManager.drop(playerData.hands.right, position);
+				playerData.hands.right = undefined;
+				return;
+			}
+
+			if (playerData.hands.left) {
+				this.physicalItemManager.drop(playerData.hands.left, position);
+				playerData.hands.left = undefined;
+				return;
+			}
 		});
 	}
 

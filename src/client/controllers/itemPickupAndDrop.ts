@@ -23,7 +23,7 @@ export class ItemPickupAndDrop implements OnStart {
 				Events.pickupItem.fire({ id: itemInstance.id });
 			} else {
 				Events.dropItem.fire({
-					position: this.singletons.localPlayer.GetMouse().Hit.Position,
+					position: this.singletons.localPlayer.GetMouse().Hit,
 				});
 			}
 		});
