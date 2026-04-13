@@ -8,6 +8,10 @@ Flamework.addPaths("src/shared/components");
 
 Workspace.FindFirstChild("Assets")!.Parent = ReplicatedStorage;
 
+const ItemsFolder = new Instance("Folder");
+ItemsFolder.Name = "Items";
+ItemsFolder.Parent = Workspace;
+
 Flamework.ignite();
 $info("flameowrk ignited!");
 

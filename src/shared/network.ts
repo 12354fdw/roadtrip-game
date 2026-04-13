@@ -1,11 +1,14 @@
 import { Networking } from "@flamework/networking";
+import { dropItem, pickupItem, replicatedData, requestReplicatedData } from "./networkTypes";
 
 interface C2S_Events {
-	requestReplicatedData(id: string): void;
+	requestReplicatedData(event: requestReplicatedData): void;
+	pickupItem(event: pickupItem): void;
+	dropItem(event: dropItem): void;
 }
 
 interface S2C_Events {
-	replicatedData(id: string, data: unknown): void;
+	replicatedData(event: replicatedData): void;
 }
 
 interface C2S2C_Functions {}

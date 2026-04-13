@@ -1,7 +1,7 @@
 import { Controller, OnStart } from "@flamework/core";
 import { RunService } from "@rbxts/services";
 import { ItemInstance } from "client/types/itemInstance";
-import { ClientSingletons } from "./singletons";
+import { ClientSingletons } from "./utils/singletons";
 import { checkIfIsItem } from "client/utils";
 
 @Controller()

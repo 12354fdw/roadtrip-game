@@ -1,4 +1,5 @@
 import { Events } from "client/network";
+import { replicatedData } from "shared/networkTypes";
 
 export class ReplicatedDataClient<T> {
 	private data: T | undefined;
@@ -6,7 +7,10 @@ export class ReplicatedDataClient<T> {
 	private disconnect: () => void;
 
 	constructor(private id: string) {
-		const connection = Events.replicatedData.connect((incomingId: string, recvData: unknown) => {
+		const connection = Events.replicatedData.connect((event: replicatedData) => {
+			const incomingId = event.id;
+			const recvData = event.data;
+
 			if (incomingId !== this.id) return;
 			const data = recvData as T;
 			this.data = data;
@@ -15,7 +19,7 @@ export class ReplicatedDataClient<T> {
 
 		this.disconnect = () => connection.Disconnect();
 
-		Events.requestReplicatedData(id);
+		Events.requestReplicatedData({ id: this.id });
 	}
 
 	public get(): T | undefined {

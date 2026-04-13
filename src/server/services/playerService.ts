@@ -1,11 +1,10 @@
 import { OnStart, Service } from "@flamework/core";
 import { Players } from "@rbxts/services";
-import { ReplicatedDataServer } from "server/types/replicatedDataServer";
 import { PlayerState } from "shared/types/playerData";
 
 @Service()
 export class PlayerService implements OnStart {
-	private playerDatas = new Map<number, ReplicatedDataServer<PlayerState>>();
+	private playerDatas = new Map<number, PlayerState>();
 
 	onStart(): void {
 		Players.PlayerAdded.Connect((player: Player) => {
@@ -13,14 +12,16 @@ export class PlayerService implements OnStart {
 
 			const playerState = new PlayerState();
 
-			this.playerDatas.set(
-				player.UserId,
-				new ReplicatedDataServer<PlayerState>(player, "playerState", playerState),
-			);
+			this.playerDatas.set(player.UserId, playerState);
 		});
 
 		Players.PlayerRemoving.Connect((player: Player) => {
 			this.playerDatas.delete(player.UserId);
 		});
+	}
+
+	// returns a reference
+	public getPlayerData(player: Player) {
+		return this.playerDatas.get(player.UserId);
 	}
 }

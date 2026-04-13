@@ -16,16 +16,17 @@ export class PlayerStats {
 }
 
 export class PlayerHands {
-	public handMode: ItemHoldType = "OneHanded";
-
-	// OneHanded Data
 	public left: BaseItem | undefined;
 	public right: BaseItem | undefined;
-
-	// TwoHanded Data
-	public both: BaseItem | undefined;
 }
 
 export class PlayerClothing {
 	// TODO: add this
+}
+
+// Sendable data to client
+
+// TODO: add the rest
+export interface SendablePlayerState {
+	stats: PlayerStats;
 }

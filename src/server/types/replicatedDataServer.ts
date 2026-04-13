@@ -13,9 +13,15 @@ export class ReplicatedDataServer<T> {
 
 	private fireData() {
 		if (this.targetPlayer !== "everyone") {
-			Events.replicatedData.fire(this.targetPlayer, this.id, this.data);
+			Events.replicatedData.fire(this.targetPlayer, {
+				id: this.id,
+				data: this.data,
+			});
 		} else {
-			Events.replicatedData.broadcast(this.id, this.data);
+			Events.replicatedData.broadcast({
+				id: this.id,
+				data: this.data,
+			});
 		}
 	}
 
