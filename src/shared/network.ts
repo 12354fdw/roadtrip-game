@@ -1,5 +1,5 @@
 import { Networking } from "@flamework/networking";
-import { dropItem, pickupItem, replicatedData, requestReplicatedData } from "./networkTypes";
+import { canPickupItem_REQUEST, dropItem, pickupItem, replicatedData, requestReplicatedData } from "./networkTypes";
 
 interface C2S_Events {
 	requestReplicatedData(event: requestReplicatedData): void;
@@ -11,7 +11,9 @@ interface S2C_Events {
 	replicatedData(event: replicatedData): void;
 }
 
-interface C2S2C_Functions {}
+interface C2S2C_Functions {
+	checkCanPickupItem(request: canPickupItem_REQUEST): boolean;
+}
 
 interface S2C2S_Functions {}
 

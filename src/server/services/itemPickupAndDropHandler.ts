@@ -1,11 +1,12 @@
 import { OnStart, Service } from "@flamework/core";
 import { PlayerService } from "./playerService";
-import { Events } from "server/network";
-import { dropItem, pickupItem } from "shared/networkTypes";
+import { Events, Functions } from "server/network";
+import { canPickupItem_REQUEST, dropItem, pickupItem } from "shared/networkTypes";
 import { BaseItem } from "shared/ItemRegistry/ItemTypes/baseItem";
 import { PlayerHands } from "shared/types/playerData";
 import { ItemManager } from "./ItemManager";
 import { PhysicalItemManager } from "./physicalItemManager";
+import { computeRangeFromParts, computeRangeFromVec3 } from "shared/utils";
 
 @Service()
 export class ItemPickupAndDropHandler implements OnStart {
@@ -22,7 +23,7 @@ export class ItemPickupAndDropHandler implements OnStart {
 			const item = this.itemManager.get(event.id);
 			if (!item) return;
 
-			if (!this.canPickup(item, playerData.hands)) return;
+			if (!this.canPickup(item, playerData.hands, player.Character!)) return;
 			if (item.model.GetAttribute("canPickup") === false) return;
 
 			if (item.holdType === "TwoHanded") {
@@ -45,6 +46,14 @@ export class ItemPickupAndDropHandler implements OnStart {
 			const playerData = this.playerService.getPlayerData(player)!;
 			const position = event.position;
 
+			const isInRange =
+				computeRangeFromVec3(
+					(player.Character?.WaitForChild("HumanoidRootPart") as BasePart).Position,
+					position.Position,
+				) <= 10;
+
+			if (!isInRange) return;
+
 			if (playerData.hands.left && playerData.hands.left.holdType === "TwoHanded") {
 				this.physicalItemManager.drop(playerData.hands.left, position);
 				playerData.hands.left = undefined;
@@ -64,13 +73,28 @@ export class ItemPickupAndDropHandler implements OnStart {
 				return;
 			}
 		});
+
+		Functions.checkCanPickupItem.setCallback((player: Player, request: canPickupItem_REQUEST) => {
+			const hands = this.playerService.getPlayerData(player)?.hands;
+			const item = this.itemManager.get(request.itemId);
+
+			if (!item || !hands) return false;
+
+			return this.canPickup(item, hands, player.Character!);
+		});
 	}
 
-	private canPickup(item: BaseItem, hands: PlayerHands): boolean {
+	private canPickup(item: BaseItem, hands: PlayerHands, character: Model): boolean {
+		const inRange =
+			computeRangeFromParts(
+				character.WaitForChild("HumanoidRootPart") as BasePart,
+				item.model.WaitForChild("Handle") as BasePart,
+			) <= 10;
+
 		if (item.holdType === "TwoHanded") {
-			return hands.left === undefined && hands.right === undefined;
+			return hands.left === undefined && hands.right === undefined && inRange;
 		}
 
-		return hands.left === undefined || hands.right === undefined;
+		return (hands.left === undefined || hands.right === undefined) && inRange;
 	}
 }

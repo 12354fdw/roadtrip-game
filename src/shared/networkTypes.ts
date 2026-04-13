@@ -14,3 +14,7 @@ export interface pickupItem {
 export interface dropItem {
 	position: CFrame;
 }
+
+export interface canPickupItem_REQUEST {
+	itemId: number;
+}
