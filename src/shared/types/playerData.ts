@@ -1,4 +1,4 @@
-import { BaseItem, ItemHoldType } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem, ItemHoldType } from "shared/Items/ItemTypes/baseItem";
 
 export class PlayerState {
 	public stats: PlayerStats = new PlayerStats();

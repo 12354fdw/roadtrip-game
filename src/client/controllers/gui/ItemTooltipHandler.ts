@@ -1,5 +1,5 @@
 import { Controller, OnStart } from "@flamework/core";
-import { BaseItem } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem } from "shared/Items/ItemTypes/baseItem";
 import { Assets } from "shared/assets";
 import { TooltipManager } from "./TooltipManager";
 import { ItemHoverDetection } from "../itemHoverDetection";
@@ -28,6 +28,7 @@ export class ItemTooltipHandler implements OnStart {
 				? Color3.fromRGB(255, 255, 255)
 				: Color3.fromRGB(255, 0, 0);
 
+		if (!this.tooltip) return;
 		(this.tooltip.WaitForChild("pressFtoPickUp") as TextLabel).TextColor3 = canPickupColor;
 
 		this.tooltipManager.show(this.tooltip);
@@ -55,6 +56,7 @@ export class ItemTooltipHandler implements OnStart {
 					? Color3.fromRGB(255, 255, 255)
 					: Color3.fromRGB(255, 0, 0);
 
+			if (!this.tooltip) return;
 			(this.tooltip.WaitForChild("pressFtoPickUp") as TextLabel).TextColor3 = canPickupColor;
 		});
 	}

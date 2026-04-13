@@ -1,4 +1,4 @@
-import { ItemRegistry } from "shared/ItemRegistry/registry";
+import { ItemRegistry } from "shared/Items/registry";
 import { ITEM_POT } from "./definitions/ITEM_POT";
 import { ITEM_COLON_THREE_TWOHAND } from "./definitions/ITEM_COLON_THREE_TWOHAND";
 import { ITEM_COLON_THREE_ONEHAND } from "./definitions/ITEM_COLON_THREE_ONEHAND";

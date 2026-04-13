@@ -1,6 +1,6 @@
 import { findFirstAncestorOfTag } from "shared/utils";
 import { ItemInstance } from "./types/itemInstance";
-import { ItemRegistry } from "shared/ItemRegistry/registry";
+import { ItemRegistry } from "shared/Items/registry";
 
 export function checkIfIsItem(part: BasePart): ItemInstance | undefined {
 	const itemModel = findFirstAncestorOfTag(part, "Item") as Model;

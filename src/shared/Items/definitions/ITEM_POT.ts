@@ -1,4 +1,4 @@
-import { BaseItem, ItemHoldType } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem, ItemHoldType } from "shared/Items/ItemTypes/baseItem";
 import { Assets } from "shared/assets";
 
 export class ITEM_POT extends BaseItem {

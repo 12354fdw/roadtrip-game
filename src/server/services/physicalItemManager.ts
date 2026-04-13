@@ -1,5 +1,5 @@
 import { Service } from "@flamework/core";
-import { BaseItem } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem } from "shared/Items/ItemTypes/baseItem";
 import { iterateOnDescendants } from "shared/utils";
 
 interface gripAttachments {

@@ -1,4 +1,4 @@
-import { BaseItem } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem } from "shared/Items/ItemTypes/baseItem";
 
 export class ItemInstance {
 	public readonly id: number;

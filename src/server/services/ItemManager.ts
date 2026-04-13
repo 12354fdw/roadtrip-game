@@ -1,6 +1,6 @@
 import { OnStart, Service } from "@flamework/core";
 import { Workspace } from "@rbxts/services";
-import { BaseItem } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { BaseItem } from "shared/Items/ItemTypes/baseItem";
 import { ITEM_COLON_THREE_ONEHAND } from "shared/Items/definitions/ITEM_COLON_THREE_ONEHAND";
 import { ITEM_COLON_THREE_TWOHAND } from "shared/Items/definitions/ITEM_COLON_THREE_TWOHAND";
 import { ITEM_POT } from "shared/Items/definitions/ITEM_POT";
