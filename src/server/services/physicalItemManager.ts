@@ -38,6 +38,11 @@ export class PhysicalItemManager {
 
 			case "Left":
 				this.equipHelper(item, gripAttachments.left);
+				break;
+
+			case "Both":
+				this.equipHelper(item, gripAttachments.left);
+				break;
 		}
 	}
 

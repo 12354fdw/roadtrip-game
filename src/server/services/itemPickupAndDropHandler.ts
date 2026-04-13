@@ -48,6 +48,8 @@ export class ItemPickupAndDropHandler implements OnStart {
 			if (playerData.hands.left && playerData.hands.left.holdType === "TwoHanded") {
 				this.physicalItemManager.drop(playerData.hands.left, position);
 				playerData.hands.left = undefined;
+				playerData.hands.right = undefined;
+				return;
 			}
 
 			if (playerData.hands.right) {
@@ -66,7 +68,7 @@ export class ItemPickupAndDropHandler implements OnStart {
 
 	private canPickup(item: BaseItem, hands: PlayerHands): boolean {
 		if (item.holdType === "TwoHanded") {
-			return hands.left === undefined;
+			return hands.left === undefined && hands.right === undefined;
 		}
 
 		return hands.left === undefined || hands.right === undefined;

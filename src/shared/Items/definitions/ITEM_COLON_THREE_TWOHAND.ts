@@ -5,7 +5,7 @@ export class ITEM_COLON_THREE_TWOHAND extends BaseItem {
 	id = "ITEM_COLON_THREE_TWOHAND";
 	displayName: string = "twohanded :3";
 
-	holdType: ItemHoldType = "OneHanded";
+	holdType: ItemHoldType = "TwoHanded";
 
 	model = Assets.getAsset("Items", "COLON_THREE")?.Clone() as Model;
 }
