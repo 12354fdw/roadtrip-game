@@ -8,6 +8,8 @@ import { ItemManager } from "./ItemManager";
 import { PhysicalItemManager } from "./physicalItemManager";
 import { computeRangeFromParts, computeRangeFromVec3 } from "shared/utils";
 
+const ITEM_RANGE = 10;
+
 @Service()
 export class ItemPickupAndDropHandler implements OnStart {
 	constructor(
@@ -50,7 +52,7 @@ export class ItemPickupAndDropHandler implements OnStart {
 				computeRangeFromVec3(
 					(player.Character?.WaitForChild("HumanoidRootPart") as BasePart).Position,
 					position.Position,
-				) <= 10;
+				) <= ITEM_RANGE;
 
 			if (!isInRange) return;
 
@@ -89,7 +91,7 @@ export class ItemPickupAndDropHandler implements OnStart {
 			computeRangeFromParts(
 				character.WaitForChild("HumanoidRootPart") as BasePart,
 				item.model.WaitForChild("Handle") as BasePart,
-			) <= 10;
+			) <= ITEM_RANGE;
 
 		if (item.holdType === "TwoHanded") {
 			return hands.left === undefined && hands.right === undefined && inRange;
