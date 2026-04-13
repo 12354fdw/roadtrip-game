@@ -1,5 +1,6 @@
 import { Service } from "@flamework/core";
 import { BaseItem } from "shared/ItemRegistry/ItemTypes/baseItem";
+import { iterateOnDescendants } from "shared/utils";
 
 interface gripAttachments {
 	right: Attachment;
@@ -17,6 +18,13 @@ export class PhysicalItemManager {
 		weld.Part0 = attachment.Parent as BasePart;
 		weld.Part1 = handle;
 		weld.Parent = attachment.Parent;
+
+		iterateOnDescendants(item.model, (instance: Instance) => {
+			// too lazy to check properly
+			pcall(() => {
+				(instance as BasePart).CanCollide = false;
+			});
+		});
 	}
 
 	public equip(item: BaseItem, character: Model, hand: "Left" | "Right" | "Both") {

@@ -23,6 +23,7 @@ export class ItemPickupAndDropHandler implements OnStart {
 			if (!item) return;
 
 			if (!this.canPickup(item, playerData.hands)) return;
+			if (item.model.GetAttribute("canPickup") === false) return;
 
 			if (item.holdType === "TwoHanded") {
 				playerData.hands.left = item;
@@ -37,6 +38,7 @@ export class ItemPickupAndDropHandler implements OnStart {
 					this.physicalItemManager.equip(item, player.Character!, "Left");
 				}
 			}
+			item.model.SetAttribute("canPickup", false);
 		});
 
 		Events.dropItem.connect((player: Player, event: dropItem) => {

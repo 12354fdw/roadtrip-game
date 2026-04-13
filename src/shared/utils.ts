@@ -5,3 +5,7 @@ export function findFirstAncestorOfTag(instance: Instance, tag: string): Instanc
 	}
 	return current;
 }
+
+export function iterateOnDescendants(instance: Instance, callback: (instance: Instance, index: number) => void) {
+	instance.GetDescendants().forEach((v: Instance, i: number) => callback(v, i));
+}
