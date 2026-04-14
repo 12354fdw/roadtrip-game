@@ -53,7 +53,7 @@
     <Item class="Part" referent="1">
       <Properties>
         <string name="Name">fire</string>
-        <bool name="Anchored">false</bool>
+        <bool name="Anchored">true</bool>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <bool name="AudioCanCollide">true</bool>
         <float name="BackParamA">-0.5</float>
@@ -158,7 +158,7 @@
             <G>0.54509807</G>
             <B>0.27450982</B>
           </Color3>
-          <bool name="Enabled">false</bool>
+          <bool name="Enabled">true</bool>
           <float name="heat_xml">9</float>
           <bool name="DefinesCapabilities">false</bool>
           <Color3 name="SecondaryColor">
@@ -176,7 +176,7 @@
     <Item class="Part" referent="3">
       <Properties>
         <string name="Name">ash</string>
-        <bool name="Anchored">false</bool>
+        <bool name="Anchored">true</bool>
         <BinaryString name="AttributesSerialize"></BinaryString>
         <bool name="AudioCanCollide">true</bool>
         <float name="BackParamA">-0.5</float>
@@ -284,7 +284,7 @@
       <Item class="Part" referent="5">
         <Properties>
           <string name="Name">4</string>
-          <bool name="Anchored">false</bool>
+          <bool name="Anchored">true</bool>
           <BinaryString name="AttributesSerialize"></BinaryString>
           <bool name="AudioCanCollide">true</bool>
           <float name="BackParamA">-0.5</float>
@@ -383,7 +383,7 @@
       <Item class="Part" referent="6">
         <Properties>
           <string name="Name">1</string>
-          <bool name="Anchored">false</bool>
+          <bool name="Anchored">true</bool>
           <BinaryString name="AttributesSerialize"></BinaryString>
           <bool name="AudioCanCollide">true</bool>
           <float name="BackParamA">-0.5</float>
@@ -482,7 +482,7 @@
       <Item class="Part" referent="7">
         <Properties>
           <string name="Name">2</string>
-          <bool name="Anchored">false</bool>
+          <bool name="Anchored">true</bool>
           <BinaryString name="AttributesSerialize"></BinaryString>
           <bool name="AudioCanCollide">true</bool>
           <float name="BackParamA">-0.5</float>
@@ -581,7 +581,7 @@
       <Item class="Part" referent="8">
         <Properties>
           <string name="Name">3</string>
-          <bool name="Anchored">false</bool>
+          <bool name="Anchored">true</bool>
           <BinaryString name="AttributesSerialize"></BinaryString>
           <bool name="AudioCanCollide">true</bool>
           <float name="BackParamA">-0.5</float>

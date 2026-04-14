@@ -93,10 +93,12 @@ export class ItemPickupAndDropHandler implements OnStart {
 				item.model.WaitForChild("Handle") as BasePart,
 			) <= ITEM_RANGE;
 
+		const canPickup = item.model.GetAttribute("canPickup") as boolean;
+
 		if (item.holdType === "TwoHanded") {
-			return hands.left === undefined && hands.right === undefined && inRange;
+			return hands.left === undefined && hands.right === undefined && inRange && canPickup;
 		}
 
-		return (hands.left === undefined || hands.right === undefined) && inRange;
+		return (hands.left === undefined || hands.right === undefined) && inRange && canPickup;
 	}
 }

@@ -16,7 +16,7 @@ export class ItemManager implements OnStart {
 		this.items.set(this.nextId, item);
 
 		item.model.Name = tostring(this.nextId);
-		item.model.SetAttribute("type", item.id);
+		item.model.SetAttribute("type", item.Type);
 		item.model.SetAttribute("canPickup", true);
 
 		if (!item.model.HasTag("Item")) item.model.AddTag("Item");

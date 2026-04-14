@@ -22,11 +22,9 @@ export class ItemTooltipHandler implements OnStart {
 		this.tooltip = Assets.getUI("Tooltips", "ITEM_BasicTooltip")!.Clone();
 		(this.tooltip.FindFirstChild("ItemName") as TextLabel).Text = itemInstance.itemType.displayName;
 
-		const canPickupColor =
-			itemInstance.model.GetAttribute("canPickup") === true &&
-			(await Functions.checkCanPickupItem.invoke({ itemId: itemInstance.id }))
-				? Color3.fromRGB(255, 255, 255)
-				: Color3.fromRGB(255, 0, 0);
+		const canPickupColor = (await Functions.checkCanPickupItem.invoke({ itemId: itemInstance.id }))
+			? Color3.fromRGB(255, 255, 255)
+			: Color3.fromRGB(255, 0, 0);
 
 		if (!this.tooltip) return;
 		(this.tooltip.WaitForChild("pressFtoPickUp") as TextLabel).TextColor3 = canPickupColor;
@@ -50,11 +48,9 @@ export class ItemTooltipHandler implements OnStart {
 
 			const itemInstance = this.itemHoverDetection.itemInstance;
 
-			const canPickupColor =
-				itemInstance.model.GetAttribute("canPickup") === true &&
-				(await Functions.checkCanPickupItem.invoke({ itemId: itemInstance.id }))
-					? Color3.fromRGB(255, 255, 255)
-					: Color3.fromRGB(255, 0, 0);
+			const canPickupColor = (await Functions.checkCanPickupItem.invoke({ itemId: itemInstance.id }))
+				? Color3.fromRGB(255, 255, 255)
+				: Color3.fromRGB(255, 0, 0);
 
 			if (!this.tooltip) return;
 			(this.tooltip.WaitForChild("pressFtoPickUp") as TextLabel).TextColor3 = canPickupColor;

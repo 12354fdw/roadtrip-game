@@ -4,11 +4,11 @@ export class ItemRegistry {
 	private static items = new Map<string, BaseItem>();
 
 	private static registerInstance(item: BaseItem) {
-		this.items.set(item.id, item);
+		this.items.set(item.Type, item);
 	}
 
-	public static get(id: string): BaseItem | undefined {
-		return this.items.get(id);
+	public static get(Type: string): BaseItem | undefined {
+		return this.items.get(Type);
 	}
 
 	public static register<T extends BaseItem>(factory: new () => T) {
@@ -16,6 +16,6 @@ export class ItemRegistry {
 		ItemRegistry.registerInstance(instance);
 
 		if (!instance.model.HasTag("Item")) instance.model.AddTag("Item");
-		instance.model.SetAttribute("type", instance.id);
+		instance.model.SetAttribute("type", instance.Type);
 	}
 }
