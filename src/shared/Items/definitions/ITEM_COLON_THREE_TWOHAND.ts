@@ -1,4 +1,4 @@
-import { BaseItem, ItemHoldType } from "shared/Items/ItemTypes/baseItem";
+import { BaseItem, ItemHoldType } from "shared/Items/types/baseItem";
 import { Assets } from "shared/assets";
 
 export class ITEM_COLON_THREE_TWOHAND extends BaseItem {

@@ -1,4 +1,4 @@
-import { BaseItem } from "./ItemTypes/baseItem";
+import { BaseItem } from "./types/baseItem";
 
 export class ItemRegistry {
 	private static items = new Map<string, BaseItem>();

@@ -5,12 +5,7 @@
 			"children": {
 				"Assets": {
 					"kind": { "kind": "folder", "root": "./game/Assets" }
-				},
-				"Map": { "path": "./game/Workspace/Map.rbxm" },
-				"Obstacles": { "path": "./game/Workspace/Obstacles.rbxm" },
-				"Plots": { "path": "./game/Workspace/Plots.rbxm" },
-				"Terrain": { "path": "./game/Workspace/Terrain.rbxmx" },
-				"Triggers": { "path": "./game/Workspace/Triggers.rbxmx" }
+				}
 			}
 		},
 		"Players": {

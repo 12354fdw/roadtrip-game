@@ -1,5 +1,5 @@
 import { Controller, OnStart } from "@flamework/core";
-import { BaseItem } from "shared/Items/ItemTypes/baseItem";
+import { BaseItem } from "shared/Items/types/baseItem";
 import { Assets } from "shared/assets";
 import { TooltipManager } from "./TooltipManager";
 import { ItemHoverDetection } from "../itemHoverDetection";

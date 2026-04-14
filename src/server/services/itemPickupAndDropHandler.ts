@@ -2,7 +2,7 @@ import { OnStart, Service } from "@flamework/core";
 import { PlayerService } from "./playerService";
 import { Events, Functions } from "server/network";
 import { canPickupItem_REQUEST, dropItem, pickupItem } from "shared/networkTypes";
-import { BaseItem } from "shared/Items/ItemTypes/baseItem";
+import { BaseItem } from "shared/Items/types/baseItem";
 import { PlayerHands } from "shared/types/playerData";
 import { ItemManager } from "./ItemManager";
 import { PhysicalItemManager } from "./physicalItemManager";
