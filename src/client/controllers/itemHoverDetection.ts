@@ -1,11 +1,10 @@
-import { Controller, OnStart } from "@flamework/core";
-import { RunService } from "@rbxts/services";
+import { Controller, OnRender, OnStart } from "@flamework/core";
 import { ItemInstance } from "client/types/itemInstance";
 import { ClientSingletons } from "./utils/singletons";
 import { checkIfIsItem } from "client/utils";
 
 @Controller()
-export class ItemHoverDetection implements OnStart {
+export class ItemHoverDetection implements OnRender {
 	private hoverListeners: Set<(item: ItemInstance) => void> = new Set();
 	private unhoverListeners: Set<(item: ItemInstance) => void> = new Set();
 	public itemInstance: ItemInstance | undefined;
@@ -22,25 +21,23 @@ export class ItemHoverDetection implements OnStart {
 		return () => this.unhoverListeners.delete(cb);
 	}
 
-	onStart(): void {
-		RunService.RenderStepped.Connect(() => {
-			const part = this.clientSingletons.localPlayer.GetMouse().Target as BasePart | undefined;
-			const newItem = part ? checkIfIsItem(part) : undefined;
+	onRender(): void {
+		const part = this.clientSingletons.localPlayer.GetMouse().Target as BasePart | undefined;
+		const newItem = part ? checkIfIsItem(part) : undefined;
 
-			const wasHovering = this.itemInstance;
-			const isHovering = newItem;
+		const wasHovering = this.itemInstance;
+		const isHovering = newItem;
 
-			if (!wasHovering && isHovering) {
-				this.itemInstance = isHovering;
-				this.hoverListeners.forEach((cb) => cb(isHovering));
-			} else if (wasHovering && !isHovering) {
-				this.itemInstance = undefined;
-				this.unhoverListeners.forEach((cb) => cb(wasHovering));
-			} else if (wasHovering && isHovering && wasHovering.id !== isHovering.id) {
-				this.unhoverListeners.forEach((cb) => cb(wasHovering));
-				this.itemInstance = isHovering;
-				this.hoverListeners.forEach((cb) => cb(isHovering));
-			}
-		});
+		if (!wasHovering && isHovering) {
+			this.itemInstance = isHovering;
+			this.hoverListeners.forEach((cb) => cb(isHovering));
+		} else if (wasHovering && !isHovering) {
+			this.itemInstance = undefined;
+			this.unhoverListeners.forEach((cb) => cb(wasHovering));
+		} else if (wasHovering && isHovering && wasHovering.id !== isHovering.id) {
+			this.unhoverListeners.forEach((cb) => cb(wasHovering));
+			this.itemInstance = isHovering;
+			this.hoverListeners.forEach((cb) => cb(isHovering));
+		}
 	}
 }

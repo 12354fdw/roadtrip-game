@@ -15,7 +15,7 @@
         <B>0.49019608</B>
       </Color3>
       <float name="Density">0.3</float>
-      <float name="Glare">0</float>
+      <float name="Glare">10</float>
       <float name="Haze">0</float>
       <float name="Offset">0.25</float>
       <bool name="DefinesCapabilities">false</bool>

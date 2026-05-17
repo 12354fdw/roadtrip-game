@@ -29,6 +29,7 @@
       <token name="LevelOfDetail">0</token>
       <token name="LuauTypeCheckMode">0</token>
       <token name="MeshPartHeadsAndAccessories">0</token>
+      <token name="MeshStreamingAndImprovedLods">0</token>
       <CoordinateFrame name="ModelMeshCFrame">
         <X>0</X>
         <Y>0</Y>
@@ -51,7 +52,6 @@
       </Vector3>
       <token name="ModelStreamingBehavior">0</token>
       <token name="ModelStreamingMode">0</token>
-      <token name="MoverConstraintRootBehavior">0</token>
       <bool name="NeedsPivotMigration">false</bool>
       <token name="NextGenerationReplication">0</token>
       <token name="PathfindingUseImprovedSearch">0</token>

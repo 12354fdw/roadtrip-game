@@ -33,7 +33,7 @@
       <float name="FogStart">0</float>
       <float name="GeographicLatitude">0</float>
       <bool name="GlobalShadows">true</bool>
-      <token name="LightingStyle">1</token>
+      <token name="LightingStyle">0</token>
       <Color3 name="OutdoorAmbient">
         <R>0.27450982</R>
         <G>0.27450982</G>
