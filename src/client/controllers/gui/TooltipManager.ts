@@ -12,7 +12,6 @@ export class TooltipManager {
 		this.toolTipFrame = tooltip;
 
 		tooltip.Parent = Players.LocalPlayer.WaitForChild("PlayerGui").WaitForChild("Popups");
-		tooltip.Visible = true;
 
 		const connection = RunService.RenderStepped.Connect(() => {
 			const mousePos = UserInputService.GetMouseLocation();
@@ -20,6 +19,7 @@ export class TooltipManager {
 		});
 
 		this.disconnect = () => connection.Disconnect();
+		tooltip.Visible = true;
 	}
 
 	public hide() {

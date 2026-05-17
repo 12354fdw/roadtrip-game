@@ -1,11 +1,11 @@
 export abstract class BasePlaceable {
 	public onCreationServer(): void {}
 
-	abstract Type: string;
-	abstract displayName: string;
+	abstract readonly Identifier: string;
+	abstract readonly displayName: string;
 
-	abstract constructionStages: Array<Model>;
-	abstract finalModel: Model;
+	abstract readonly constructionStages: Model[];
+	abstract readonly finalModel: Model;
 
-	abstract ghostPreview: Model; // yes you need to make the ghost model
+	abstract readonly ghostPreview: Model; // yes you need to make the ghost model
 }

@@ -9,6 +9,7 @@ export default function transformer(program: ts.Program): ts.TransformerFactory<
 				$info: "INFO",
 				$warn: "WARN",
 				$error: "ERROR",
+				$fatal: "FATAL",
 			} as const;
 
 			function visitor(node: ts.Node): ts.Node {
@@ -23,22 +24,32 @@ export default function transformer(program: ts.Program): ts.TransformerFactory<
 
 						const prefix = `[${level}] [${file}: ${line}] `;
 
-						const printFunc =
-							level === "WARN" || level === "ERROR"
-								? ts.factory.createIdentifier("warn")
-								: ts.factory.createIdentifier("print");
-
-						// First argument: __LOG_CONTEXT .. "prefix"
 						const firstArg = ts.factory.createBinaryExpression(
 							ts.factory.createIdentifier("__LOG_CONTEXT"),
 							ts.SyntaxKind.PlusToken,
 							ts.factory.createStringLiteral(prefix),
 						);
 
-						// Preserve all original arguments
+						if (level === "FATAL") {
+							const message = ts.factory.createBinaryExpression(
+								firstArg,
+								ts.SyntaxKind.PlusToken,
+								node.arguments[0] ?? ts.factory.createStringLiteral(""),
+							);
+							return ts.factory.createCallExpression(
+								ts.factory.createIdentifier("error"),
+								undefined,
+								[message],
+							);
+						}
+
+						const printFunc =
+							level === "WARN" || level === "ERROR"
+								? ts.factory.createIdentifier("warn")
+								: ts.factory.createIdentifier("print");
+
 						const args: ts.Expression[] = [firstArg, ...node.arguments];
 
-						// If no original args, still pass empty string
 						if (node.arguments.length === 0) {
 							args.push(ts.factory.createStringLiteral(""));
 						}

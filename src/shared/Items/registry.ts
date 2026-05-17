@@ -4,7 +4,7 @@ export class ItemRegistry {
 	private static items = new Map<string, BaseItem>();
 
 	private static registerInstance(item: BaseItem) {
-		this.items.set(item.Type, item);
+		this.items.set(item.Identifier, item);
 	}
 
 	public static get(Type: string): BaseItem | undefined {
@@ -16,6 +16,6 @@ export class ItemRegistry {
 		ItemRegistry.registerInstance(instance);
 
 		if (!instance.model.HasTag("Item")) instance.model.AddTag("Item");
-		instance.model.SetAttribute("type", instance.Type);
+		instance.model.SetAttribute("type", instance.Identifier);
 	}
 }

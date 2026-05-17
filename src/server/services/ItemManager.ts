@@ -4,6 +4,8 @@ import { BaseItem } from "shared/Items/types/baseItem";
 import { ITEM_COLON_THREE_ONEHAND } from "shared/Items/definitions/ITEM_COLON_THREE_ONEHAND";
 import { ITEM_COLON_THREE_TWOHAND } from "shared/Items/definitions/ITEM_COLON_THREE_TWOHAND";
 import { ITEM_POT } from "shared/Items/definitions/ITEM_POT";
+import { ITEM_FIREWOOD } from "shared/Items/definitions/ITEM_FIREWOOD";
+import { ItemRegistry } from "shared/Items/registry";
 
 @Service()
 export class ItemManager implements OnStart {
@@ -12,11 +14,13 @@ export class ItemManager implements OnStart {
 
 	public createItem<T extends BaseItem>(itemType: new () => T, position: Vector3): T {
 		const item = new itemType();
+		if (!ItemRegistry.get(item.Identifier))
+			$fatal(`Item ${item.Identifier} is undefined! Did you forget to register it?`);
 
 		this.items.set(this.nextId, item);
 
 		item.model.Name = tostring(this.nextId);
-		item.model.SetAttribute("type", item.Type);
+		item.model.SetAttribute("type", item.Identifier);
 		item.model.SetAttribute("canPickup", true);
 
 		if (!item.model.HasTag("Item")) item.model.AddTag("Item");
@@ -36,5 +40,10 @@ export class ItemManager implements OnStart {
 		this.createItem(ITEM_COLON_THREE_ONEHAND, new Vector3(0, 10, 0));
 		this.createItem(ITEM_COLON_THREE_TWOHAND, new Vector3(10, 10, 0));
 		this.createItem(ITEM_POT, new Vector3(0, 10, 10));
+
+		this.createItem(ITEM_FIREWOOD, new Vector3(-10, 10, 0));
+		this.createItem(ITEM_FIREWOOD, new Vector3(-10, 10, 0));
+		this.createItem(ITEM_FIREWOOD, new Vector3(-10, 10, 0));
+		this.createItem(ITEM_FIREWOOD, new Vector3(-10, 10, 0));
 	}
 }

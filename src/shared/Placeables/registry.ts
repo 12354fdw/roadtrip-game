@@ -4,7 +4,7 @@ export class PlaceableRegistry {
 	private static placeables = new Map<string, BasePlaceable>();
 
 	private static registerInstance(placeable: BasePlaceable) {
-		this.placeables.set(placeable.Type, placeable);
+		this.placeables.set(placeable.Identifier, placeable);
 	}
 
 	public static get(Type: string): BasePlaceable | undefined {
@@ -15,7 +15,7 @@ export class PlaceableRegistry {
 		const instance = new factory();
 		PlaceableRegistry.registerInstance(instance);
 
-		if (!instance.finalModel.HasTag("Item")) instance.finalModel.AddTag("Item");
-		instance.finalModel.SetAttribute("type", instance.Type);
+		if (!instance.finalModel.HasTag("Placeable")) instance.finalModel.AddTag("Placeable");
+		instance.finalModel.SetAttribute("type", instance.Identifier);
 	}
 }
